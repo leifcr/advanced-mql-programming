@@ -158,8 +158,9 @@ int SetBarsIn24Hours()
    
    int numBarsIn7Days = iBarShift(NULL, PERIOD_CURRENT, prevDateTime, false);
    
-   //Num bars in 7 days actually represents 5 trading days. N.B. This Indicator only works for assets that trade 5 days per week. It will not work with 24x7 Crypto for example
-   BarsIn24Hours = numBarsIn7Days / 5; 
+   // Divide by the given number of trading days
+   // By dividing by the input from number of trading days, any asset should work, as long as the correct number of trading days is correct.
+   BarsIn24Hours = numBarsIn7Days / AveragingDays; 
       
    return BarsIn24Hours;
 }
